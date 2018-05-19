@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Blockly Demo: Resizable Blockly (Part 2)</title>
+  <script src="./blockly_compressed.js"></script>
+  <script src="./javascript_compressed.js"></script>
+
+  <!-- Custom block definitions -->
+
+  <script src="./customblocks/Events/onevent.js"></script>
+  <script src="./customblocks/Events/oneventdef.js"></script>
+
+  <script src="./customblocks/Event_Player/eventplayer.js"></script>
+  <script src="./customblocks/Event_Player/eventplayerdef.js"></script>
+  <script src="./customblocks/Event_Player/playergetters.js"></script>
+  <script src="./customblocks/Event_Player/playergettersdef.js"></script>
+
+  <script src="./customblocks/Other/javatext.js"></script>
+  <script src="./customblocks/Other/javatextdef.js"></script>
+  <script src="./customblocks/Other/forloop.js"></script>
+  <script src="./customblocks/Other/forloopdef.js"></script>
+  <script src="./customblocks/Other/console.js"></script>
+  <script src="./customblocks/Other/consoledef.js"></script>
+  <!-- End of custom block definitions -->
+
+  <script src="./blocks_compressed.js"></script>
+  <script src="./msg/js/en.js"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      background-color: #fff;
+      font-family: sans-serif;
+      overflow: hidden;
+    }
+    h1 {
+      font-weight: normal;
+      font-size: 140%;
+    }
+    table {
+      height: 100%;
+      width: 100%;
+    }
+    #blocklyArea {
+      height: 99%;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <tr>
+      <td>
+        <h1>Jorel's Plugin creator</h1>
+
+          <textarea id="textarea" rows="15" cols="100">Code will appear here...</textarea>
+      </td>
+    </tr>
+    <tr>
+      <td id="blocklyArea">
+      </td>
+    </tr>
+  </table>
+
+
+
+  <div id="blocklyDiv" style="position: absolute"></div>
+
+  <xml id="toolbox" style="display: none">
+    <category name="Main">
+        <block type="controls_if"></block>
+        <block type="logic_compare"></block>
+        <block type="for_loop"></block>
+        <block type="math_number">
+          <field name="NUM">123</field>
+        </block>
+        <block type="math_arithmetic"></block>
+        <block type="java_text"></block>
+        <block type="writetoconsole"></block>
+    </category>
+    <category name="Events">
+      <block type="on_event">
+        <field name="EVENT_TYPE">JOIN</field>
+      </block>
+      <block type="playerinteractevent">
+        <field name="INTERACT_ACTION_CLICK">LEFT_CLICK</field>
+        <field name="INTERACT_ACTION_BLOCK">AIR</field>
+      </block>
+    </category>
+    <category name="Event player">
+      <!-- Methods -->
+      <block type="setplayerhealth">
+        <field name="Set player health">10</field>
+      </block>
+      <block type="playerchat"></block>
+      <block type="fireprojectile">
+        <field name="PROJECTILE">ARROW</field>
+      </block>
+
+      <!-- Getters -->
+      <block type="playerhealth"></block>
+      <block type="playername"></block>
+    </category>
+    <!--<category name="Other">
+        <block type="writetoconsole"></block>
+      </category>-->
+  </xml>
+
+  <script>
+    Blockly.BlockSvg.START_HAT = true;
+    var blocklyArea = document.getElementById('blocklyArea');
+    var blocklyDiv = document.getElementById('blocklyDiv');
+    var demoWorkspace = Blockly.inject(blocklyDiv,
+        {media: './media/',
+         toolbox: document.getElementById('toolbox')});
+    var onresize = function(e) {
+      // Compute the absolute coordinates and dimensions of blocklyArea.
+      var element = blocklyArea;
+      var x = 0;
+      var y = 0;
+      do {
+        x += element.offsetLeft;
+        y += element.offsetTop;
+        element = element.offsetParent;
+      } while (element);
+      // Position blocklyDiv over blocklyArea.
+      blocklyDiv.style.left = x + 'px';
+      blocklyDiv.style.top = y + 'px';
+      blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
+      blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
+    };
+    window.addEventListener('resize', onresize, false);
+    onresize();
+    Blockly.svgResize(demoWorkspace);
+
+    function myUpdateFunction(event) {
+      var code = Blockly.JavaScript.workspaceToCode(demoWorkspace);
+      document.getElementById('textarea').value = code;
+    }
+    demoWorkspace.addChangeListener(myUpdateFunction);
+  </script>
+</body>
+</html>
