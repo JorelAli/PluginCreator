@@ -57,3 +57,10 @@ Blockly.JavaScript['fireprojectile'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
   return code;
 };
+
+Blockly.JavaScript['playercommand'] = function(block) {
+  var value_player_command = Blockly.JavaScript.valueToCode(block, 'PLAYER_COMMAND', Blockly.JavaScript.ORDER_ATOMIC);
+  //Make the player perform the input command
+  var code = 'event.getPlayer().performCommand' + value_player_command + ';\n';
+  return code;
+};

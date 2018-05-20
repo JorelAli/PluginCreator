@@ -38,3 +38,16 @@ Blockly.Blocks['fireprojectile'] = {
  this.setHelpUrl("");
   }
 };
+
+Blockly.Blocks['playercommand'] = {
+  init: function() {
+    this.appendValueInput("PLAYER_COMMAND")
+        .setCheck("String")
+        .appendField("Make the player perform the command");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(20);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
