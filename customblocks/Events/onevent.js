@@ -55,3 +55,19 @@ Blockly.JavaScript['playerinteractevent'] = function(block) {
 
   return code;
 };
+
+Blockly.JavaScript['playerbedevent'] = function(block) {
+  var dropdown_bed_choice = block.getFieldValue('BED_CHOICE');
+  var statements_player_bed_event = Blockly.JavaScript.statementToCode(block, 'PLAYER_BED_EVENT');
+
+  var eventName;
+
+  if(dropdown_bed_choice == "ENTER_BED") {
+    eventName = "PlayerBedEnterEvent";
+  } else if(dropdown_bed_choice == "LEAVE_BED") {
+    eventName = "PlayerBedLeaveEvent";
+  }
+
+  var code = "@EventHandler\npublic void on" + eventName + "(" + eventName + " event) {\n" + statements_player_bed_event + "}\n";
+  return code;
+};

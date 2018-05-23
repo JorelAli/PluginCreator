@@ -22,3 +22,17 @@ Blockly.Blocks['playerinteractevent'] = {
  this.setHelpUrl("");
   }
 };
+
+Blockly.Blocks['playerbedevent'] = {
+  init: function() {
+    this.appendStatementInput("PLAYER_BED_EVENT")
+        .setCheck(null)
+        .appendField("When a player")
+        .appendField(new Blockly.FieldDropdown([["enters","ENTER_BED"], ["leaves","LEAVE_BED"]]), "BED_CHOICE")
+        .appendField("a bed");
+    this.setNextStatement(true, null);
+    this.setColour(65);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};

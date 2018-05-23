@@ -1,0 +1,22 @@
+From what I can tell, from what I've heard and seen, what often seems to be lacking is variation.
+For example:
+- On equipping a bow (choosing it in your hotbar)
+- On drawing a bow (not firing, just readying an arrow)
+- On firing a bow
+- During arrow-flight
+- On arrow land
+And then; whether the arrow lands on a target or on a block
+Or for example:
+- On placing down a bed
+- On right-clicking a bed (whether or not you get in, depending on time of day)
+- On actually getting in a bed
+- If time passes or not
+- When getting out of a bed, when night hasn't passed
+- When getting out of a bed, when night hás passed.
+There's a God awful tremendous amount of possible events or triggers to which relevant consequences can be attached. It'd be ideal to be able to select each and every one of them individually, but also by far the most work.
+Not sure if you want to go that far in-depth
+Oh and I forgot;
+- While in a bed
+Like if you want to play Nyan theme to people while they're in bed.
+
+http://en.njol.ch/projects/skript/doc/events
