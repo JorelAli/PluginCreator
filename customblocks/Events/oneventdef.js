@@ -2,7 +2,7 @@ Blockly.Blocks['on_event'] = {
   init: function() {
     this.appendStatementInput("EVENT")
         .setCheck(null)
-        .appendField("When the player ")
+        .appendField("When a player ")
         .appendField(new Blockly.FieldDropdown([["joins the server","JOIN"], ["leaves the server","LEAVES"], ["dies","DIES"], ["breaks a block","BREAKBLOCK"], ["places a block","PLACEBLOCK"]]), "EVENT_TYPE");
     this.setColour(65);
  this.setTooltip("");
