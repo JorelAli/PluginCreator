@@ -23,7 +23,7 @@ Blockly.JavaScript['on_event'] = function(block) {
       break;
   }
 
-  var code = "@EventHandler\npublic void on" + eventName + "(" + eventName + " event) {\n" + statements_event + "}\n";
+  var code = "@EventHandler\npublic void on" + eventName + "(" + eventName + " event) {\n  Player player = (Player) event.getPlayer();\n" + statements_event + "}\n";
   return code;
 };
 
@@ -49,9 +49,9 @@ Blockly.JavaScript['playerinteractevent'] = function(block) {
     blockType = "AIR";
   }
 
-  var code = "@EventHandler\npublic void onInteract(PlayerInteractEvent event) {\n" +
+  var code = "@EventHandler\npublic void onInteract(PlayerInteractEvent event) {\n  Player player = (Player) event.getPlayer();\n" +
   "if(event.getAction().equals(Action." + clickType + blockType + ")) {\n" +
-  statements_player_interact_event + "\n}\n}\n"
+  statements_player_interact_event + "}\n}\n"
 
   return code;
 };
@@ -68,6 +68,6 @@ Blockly.JavaScript['playerbedevent'] = function(block) {
     eventName = "PlayerBedLeaveEvent";
   }
 
-  var code = "@EventHandler\npublic void on" + eventName + "(" + eventName + " event) {\n" + statements_player_bed_event + "}\n";
+  var code = "@EventHandler\npublic void on" + eventName + "(" + eventName + " event) {\n  Player player = (Player) event.getPlayer();\n" + statements_player_bed_event + "}\n";
   return code;
 };
