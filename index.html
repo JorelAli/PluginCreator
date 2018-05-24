@@ -16,6 +16,12 @@
   <script src="./customblocks/Event_Player/playergetters.js"></script>
   <script src="./customblocks/Event_Player/playergettersdef.js"></script>
 
+  <script src="./customblocks/World/world.js"></script>
+  <script src="./customblocks/World/worlddef.js"></script>
+
+  <script src="./customblocks/Converters/converter.js"></script>
+  <script src="./customblocks/Converters/converterdef.js"></script>
+
   <script src="./customblocks/Other/javatext.js"></script>
   <script src="./customblocks/Other/javatextdef.js"></script>
   <script src="./customblocks/Other/forloop.js"></script>
@@ -103,11 +109,21 @@
       <block type="fireprojectile">
         <field name="PROJECTILE">ARROW</field>
       </block>
-	  <block type="playercommand"></block>
+    <block type="playercommand"></block>
+    
 
       <!-- Getters -->
       <block type="playerhealth"></block>
       <block type="playername"></block>
+      <block type="playertargetblock"></block>
+    </category>
+    <category name="World">
+      <!-- Methods -->
+      <block type="strikelightning"></block>
+    </category>
+    <category name="Converters">
+      <!-- Methods -->
+      <block type="block2location"></block>
     </category>
     <!--<category name="Other">
         <block type="writetoconsole"></block>

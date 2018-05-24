@@ -19,3 +19,14 @@ Blockly.Blocks['playername'] = {
  this.setHelpUrl("");
   }
 };
+
+Blockly.Blocks['playertargetblock'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("The block the player is looking at");
+    this.setOutput(true, "Block");
+    this.setColour(210);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
